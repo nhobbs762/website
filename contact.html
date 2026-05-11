@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Hobbes Digital</title>
+  <meta name="description" content="Tell us about your business. We'll tell you what we'd do. No pressure, no pitch deck." />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Hobbes<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Work</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#notes">Notes</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+6565550100" class="nav-phone">+65 6555 0100</a>
+          <a href="contact.html" class="btn btn-dark active">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact hero -->
+  <section class="contact-hero">
+    <div class="container">
+      <span class="eyebrow" style="display:block; margin-bottom:20px;">Get in touch</span>
+      <h1>Tell us about your business.</h1>
+      <p class="lead">
+        We'll tell you what we'd do. No pressure, no pitch deck —
+        a 30-minute conversation and a written note afterwards, either way.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact body -->
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div>
+          <form
+            name="contact"
+            method="POST"
+            action="#"
+            onsubmit="handleSubmit(event)"
+          >
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Marcus Lim" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="marcus@yourshop.sg" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number <span style="color:var(--stone); font-weight:400;">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+65 9000 0000" />
+            </div>
+
+            <div class="form-group">
+              <label for="business">Tell us about your business</label>
+              <textarea id="business" name="business" placeholder="What do you do, where are you based, and what's the challenge you're trying to solve?" required></textarea>
+              <p class="form-hint">Plain English is fine. The more specific, the better the note we'll send back.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="budget">Monthly marketing budget <span style="color:var(--stone); font-weight:400;">(rough estimate)</span></label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Select a range</option>
+                <option value="under-2k">Under S$2,000</option>
+                <option value="2k-5k">S$2,000 – S$5,000</option>
+                <option value="5k-10k">S$5,000 – S$10,000</option>
+                <option value="over-10k">Over S$10,000</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Send →
+            </button>
+
+            <p class="form-hint" style="margin-top:16px; text-align:center;">
+              We reply to every message within one business day.
+            </p>
+          </form>
+
+          <!-- Success state (hidden by default) -->
+          <div id="form-success" style="display:none; padding:40px 0; text-align:center;">
+            <p class="eyebrow" style="display:block; margin-bottom:16px;">Message received</p>
+            <h3 style="font-size: clamp(22px, 2.5vw, 30px); margin-bottom:16px;">We'll be in touch.</h3>
+            <p>Check your inbox tomorrow — you'll have a written note from us with our honest read on the situation.</p>
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="contact-details">
+          <h3>Other ways to reach us</h3>
+
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Email</span>
+            <span class="contact-detail-value">
+              <a href="mailto:hello@hobbes.sg">hello@hobbes.sg</a>
+            </span>
+          </div>
+
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Phone</span>
+            <span class="contact-detail-value">
+              <a href="tel:+6565550100">+65 6555 0100</a>
+            </span>
+          </div>
+
+          <div class="contact-detail-item">
+            <span class="contact-detail-label">Office</span>
+            <span class="contact-detail-value">
+              4 Eu Tong Sen St<br />
+              Singapore 059818
+            </span>
+          </div>
+
+          <div class="divider"></div>
+
+          <h3>What to expect</h3>
+          <p style="font-size: var(--t-small); margin-bottom:16px;">
+            We read every message ourselves. You won't get an automated
+            response or a junior assistant — you'll hear from one of us
+            directly.
+          </p>
+          <p style="font-size: var(--t-small); margin-bottom:16px;">
+            If your business isn't the right fit for us, we'll say so plainly
+            and point you toward someone who might be better suited. No hard
+            sell either way.
+          </p>
+          <p style="font-size: var(--t-small);">
+            Response time: within one business day.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Hobbes<span>.</span></div>
+          <p class="footer-tagline">
+            We help small businesses grow without breaking what's working.
+            Singapore-based. Working with operators across SE Asia.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4 class="eyebrow">Work</h4>
+          <ul>
+            <li><a href="#">Case studies</a></li>
+            <li><a href="#">Industries</a></li>
+            <li><a href="#">Approach</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="eyebrow">Services</h4>
+          <ul>
+            <li><a href="services.html">Strategy</a></li>
+            <li><a href="services.html">Execution</a></li>
+            <li><a href="services.html">Reporting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="eyebrow">Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@hobbes.sg">hello@hobbes.sg</a></li>
+            <li><a href="tel:+6565550100">+65 6555 0100</a></li>
+            <li>4 Eu Tong Sen St</li>
+            <li>Singapore 059818</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Hobbes Digital Pte Ltd</span>
+        <span>Made in Singapore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.querySelector('form[name="contact"]').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

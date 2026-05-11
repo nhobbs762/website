@@ -1,0 +1,158 @@
+/* =====================================================================
+   Hobbes Digital — Design Tokens (v2 — dark-mode-first)
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- Colors ------------------------------------------------------- */
+
+  /* Brand — dark, considered, not warm-paper */
+  --midnight:     #131A1A;  /* canonical background — deep near-black with green undertone */
+  --midnight-2:   #1B2323;  /* surfaces sitting on midnight */
+  --slate:        #2A3232;  /* cards, breaks */
+  --slate-2:      #3A4242;  /* dividers, hairlines on dark */
+
+  --bone:         #EDE7DA;  /* primary text on midnight — warm off-white, not pure */
+  --bone-2:       #C9C2B3;  /* body text */
+  --ash:          #8A8378;  /* muted, captions */
+  --ash-2:        #5C5851;  /* tertiary, disabled */
+
+  /* Accents */
+  --oxblood:      #8E2A2A;  /* primary accent — deep, rich, never SaaS */
+  --oxblood-deep: #6E1F1F;
+  --oxblood-tint: #2A1818;
+  --moss:         #4A6B4A;  /* secondary — used 1:5 vs oxblood */
+  --moss-tint:    #1E2A1E;
+  --brass:        #B89968;  /* tertiary highlight — for fine details, dividers, monogram serifs */
+
+  /* Light-mode surfaces (used in slide variants and email) */
+  --bone-bg:      #EDE7DA;
+  --bone-bg-2:    #E2DBCA;
+
+  /* Semantic */
+  --bg-1:         var(--midnight);
+  --bg-2:         var(--midnight-2);
+  --bg-3:         var(--slate);
+  --fg-1:         var(--bone);
+  --fg-2:         var(--bone-2);
+  --fg-3:         var(--ash);
+  --fg-4:         var(--ash-2);
+  --hairline:     rgba(237, 231, 218, 0.10);
+  --accent:       var(--oxblood);
+  --accent-deep:  var(--oxblood-deep);
+  --link:         var(--bone);
+
+  /* --- Type --------------------------------------------------------- */
+  --font-display: 'Fraunces', 'Times New Roman', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --t-display:    clamp(48px, 7vw, 96px);
+  --t-h1:         clamp(40px, 5vw, 64px);
+  --t-h2:         clamp(32px, 3.6vw, 44px);
+  --t-h3:         clamp(24px, 2.4vw, 30px);
+  --t-h4:         20px;
+  --t-lead:       21px;
+  --t-body:       17px;
+  --t-small:      15px;
+  --t-meta:       13px;
+  --t-eyebrow:    12px;
+
+  --lh-tight:     1.05;
+  --lh-snug:      1.2;
+  --lh-normal:    1.45;
+  --lh-relaxed:   1.6;
+
+  --tr-tight:     -0.025em;
+  --tr-eyebrow:   0.14em;
+
+  /* --- Spacing (4px base) ------------------------------------------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+  --s-9: 96px; --s-10: 128px;
+
+  /* --- Radii -------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* --- Shadows (only two) ------------------------------------------- */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
+  --shadow-lift: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+  --content-max: 1200px;
+  --reading-max: 680px;
+  --page-pad-mobile:  32px;
+  --page-pad-desktop: 64px;
+
+  --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 400ms;
+}
+
+html, body {
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+* { box-sizing: border-box; }
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  font-weight: 400;
+  letter-spacing: var(--tr-tight);
+  line-height: var(--lh-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+.display { font-size: var(--t-display); font-weight: 300; }
+h1 { font-size: var(--t-h1); }
+h2 { font-size: var(--t-h2); line-height: var(--lh-snug); }
+h3 { font-size: var(--t-h3); font-weight: 500; line-height: var(--lh-snug); }
+h4 { font-size: var(--t-h4); font-weight: 600; font-family: var(--font-body); letter-spacing: 0; }
+
+p, li {
+  font-size: var(--t-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+  max-width: var(--reading-max);
+  text-wrap: pretty;
+}
+.lead { font-size: var(--t-lead); line-height: var(--lh-relaxed); color: var(--fg-2); }
+.eyebrow {
+  font-family: var(--font-body); font-size: var(--t-eyebrow);
+  font-weight: 600; letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase; color: var(--fg-3);
+}
+.meta { font-size: var(--t-meta); color: var(--fg-3); }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: rgba(237, 231, 218, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--dur-base) var(--ease);
+}
+a:hover { text-decoration-color: var(--bone); }
+
+code, .mono { font-family: var(--font-mono); font-size: 0.92em; }
+
+::selection { background: var(--oxblood); color: var(--bone); }
+
+.italic-display { font-family: var(--font-display); font-style: italic; }
+
+/* Light surfaces (bone) for inversion */
+.surface-bone { background: var(--bone-bg); color: var(--midnight); }
+.surface-bone .eyebrow { color: var(--ash-2); }
+.surface-bone a { color: var(--midnight); text-decoration-color: rgba(19,26,26,0.4); }
+.surface-bone a:hover { text-decoration-color: var(--midnight); }

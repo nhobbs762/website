@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Placeholder photography">
+  
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3C2E22"></stop>
+      <stop offset="1" stop-color="#181613"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"></rect>
+  <g opacity="0.4" fill="none" stroke="#C8553D" stroke-width="1.2">
+    <circle cx="900" cy="280" r="120"></circle>
+    <path d="M 0 600 Q 300 540 600 600 T 1200 600"></path>
+    <path d="M 0 640 Q 300 580 600 640 T 1200 640"></path>
+  </g>
+  <text x="60" y="760" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.2em" fill="#A39A8C">PLACEHOLDER — REPLACE WITH REAL PHOTOGRAPHY</text>
+</svg>
