@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Hobbes Digital</title>
-  <meta name="description" content="Strategy, execution, and measurement — three things, done well, by the same small team." />
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body>
+---
+import Base from '../layouts/Base.astro';
+---
 
-  <!-- Nav -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo">Hobbes<span>.</span></a>
-        <ul class="nav-links">
-          <li><a href="index.html">Work</a></li>
-          <li><a href="services.html" class="active">Services</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#notes">Notes</a></li>
-        </ul>
-        <div class="nav-right">
-          <a href="tel:+6565550100" class="nav-phone">+65 6555 0100</a>
-          <a href="contact.html" class="btn btn-dark">Talk to us</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<Base
+  title="Services — Hobbes Digital"
+  description="Strategy, execution, and measurement — three things, done well, by the same small team."
+>
 
   <!-- Page hero -->
   <section class="page-hero">
@@ -59,7 +37,7 @@
             document you can hand to anyone in your business and have them
             understand in 20 minutes.
           </p>
-          <p style="margin-top:16px;">
+          <p>
             Strategy includes an audit of what you're currently doing,
             competitive landscape research, and a 90-day playbook with
             weekly priorities.
@@ -78,7 +56,7 @@
             partnerships, listing management — whatever the plan calls for.
             We don't outsource to junior freelancers and mark it up.
           </p>
-          <p style="margin-top:16px;">
+          <p>
             Most of our clients are in F&B, retail, healthcare, or
             professional services. We know the constraints: tight margins,
             small teams, owners who wear five hats. We work around that.
@@ -97,7 +75,7 @@
             footfall first, then the metrics that lead to them. We tell you
             what worked, what didn't, and what we're changing.
           </p>
-          <p style="margin-top:16px;">
+          <p>
             We don't hide behind impressions and reach numbers when the
             restaurant is still half-empty on Tuesdays. The report is a
             conversation, not a defense.
@@ -148,7 +126,7 @@
       <div class="quote-inner">
         <blockquote>
           "We'd been burned before by agencies that promised the world
-          and delivered reports. Hobbes just... did the work."
+          and delivered reports. Hobbes just&hellip; did the work."
         </blockquote>
         <div class="quote-attribution">
           <div class="quote-avatar">S</div>
@@ -173,53 +151,8 @@
         No pressure, no pitch deck. A 30-minute conversation, and a written
         note from us afterwards either way.
       </p>
-      <a href="contact.html" class="btn btn-primary">Start a conversation →</a>
+      <a href="/contact" class="btn btn-primary">Start a conversation →</a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">Hobbes<span>.</span></div>
-          <p class="footer-tagline">
-            We help small businesses grow without breaking what's working.
-            Singapore-based. Working with operators across SE Asia.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4 class="eyebrow">Work</h4>
-          <ul>
-            <li><a href="#">Case studies</a></li>
-            <li><a href="#">Industries</a></li>
-            <li><a href="#">Approach</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="eyebrow">Services</h4>
-          <ul>
-            <li><a href="services.html">Strategy</a></li>
-            <li><a href="services.html">Execution</a></li>
-            <li><a href="services.html">Reporting</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="eyebrow">Contact</h4>
-          <ul>
-            <li><a href="mailto:hello@hobbes.sg">hello@hobbes.sg</a></li>
-            <li><a href="tel:+6565550100">+65 6555 0100</a></li>
-            <li>4 Eu Tong Sen St</li>
-            <li>Singapore 059818</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Hobbes Digital Pte Ltd</span>
-        <span>Made in Singapore</span>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+</Base>

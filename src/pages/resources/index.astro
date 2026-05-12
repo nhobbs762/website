@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('resources')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-SG', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base
+  title="Resources — Hobbes Digital"
+  description="Practical guides on digital marketing, AI tools, and what actually works for small businesses in Singapore and SE Asia."
+>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Resources</span>
+      <h1>Practical guides for business owners.</h1>
+      <p class="lead">
+        Plain-English writing on digital marketing, AI tools, and what
+        actually works for small businesses in Singapore and SE Asia.
+        No jargon. No vanity metrics.
+      </p>
+    </div>
+  </section>
+
+  <section class="resources-list">
+    <div class="container">
+      {posts.map((post) => (
+        <a href={`/resources/${post.slug}`} class="resource-card">
+          <div class="resource-card-meta">
+            <span class="eyebrow">{formatDate(post.data.pubDate)}</span>
+            {post.data.tags.map((tag) => (
+              <span class="resource-tag">{tag}</span>
+            ))}
+          </div>
+          <h2 class="resource-card-title">{post.data.title}</h2>
+          <p class="resource-card-desc">{post.data.description}</p>
+          <span class="resource-card-link">Read guide →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+</Base>

@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hobbes Digital — Marketing for small businesses in Singapore</title>
-  <meta name="description" content="We help small business owners in Singapore and SE Asia build a steady, predictable flow of customers. Practical marketing, measured against revenue." />
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body>
+---
+import Base from '../layouts/Base.astro';
+---
 
-  <!-- Nav -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo">Hobbes<span>.</span></a>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Work</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#notes">Notes</a></li>
-        </ul>
-        <div class="nav-right">
-          <a href="tel:+6565550100" class="nav-phone">+65 6555 0100</a>
-          <a href="contact.html" class="btn btn-dark">Talk to us</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<Base title="Hobbes Digital — Marketing for small businesses in Singapore">
 
   <!-- Hero -->
   <section class="hero">
@@ -43,7 +18,7 @@
         customers — so the business can support the people who built it.
       </p>
       <div class="hero-actions">
-        <a href="contact.html" class="btn btn-primary">Talk to us →</a>
+        <a href="/contact" class="btn btn-primary">Talk to us →</a>
         <a href="#work" class="btn btn-secondary">See our work</a>
       </div>
     </div>
@@ -94,7 +69,7 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services overview -->
   <section class="services-section">
     <div class="container">
       <div class="section-divider">
@@ -154,53 +129,8 @@
         No pressure, no pitch deck. A 30-minute conversation, and a written
         note from us afterwards either way.
       </p>
-      <a href="contact.html" class="btn btn-primary">Start a conversation →</a>
+      <a href="/contact" class="btn btn-primary">Start a conversation →</a>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">Hobbes<span>.</span></div>
-          <p class="footer-tagline">
-            We help small businesses grow without breaking what's working.
-            Singapore-based. Working with operators across SE Asia.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4 class="eyebrow">Work</h4>
-          <ul>
-            <li><a href="#">Case studies</a></li>
-            <li><a href="#">Industries</a></li>
-            <li><a href="#">Approach</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="eyebrow">Services</h4>
-          <ul>
-            <li><a href="services.html">Strategy</a></li>
-            <li><a href="services.html">Execution</a></li>
-            <li><a href="services.html">Reporting</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 class="eyebrow">Contact</h4>
-          <ul>
-            <li><a href="mailto:hello@hobbes.sg">hello@hobbes.sg</a></li>
-            <li><a href="tel:+6565550100">+65 6555 0100</a></li>
-            <li>4 Eu Tong Sen St</li>
-            <li>Singapore 059818</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Hobbes Digital Pte Ltd</span>
-        <span>Made in Singapore</span>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+</Base>
