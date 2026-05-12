@@ -1,0 +1,23 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Hobbes<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="/" class:list={{ active: isActive('/') }}>Work</a></li>
+        <li><a href="/services" class:list={{ active: isActive('/services') }}>Services</a></li>
+        <li><a href="/about" class:list={{ active: isActive('/about') }}>About</a></li>
+        <li><a href="/resources" class:list={{ active: isActive('/resources') }}>Resources</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="tel:+6565550100" class="nav-phone">+65 6555 0100</a>
+        <a href="/contact" class="btn btn-dark">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</nav>
