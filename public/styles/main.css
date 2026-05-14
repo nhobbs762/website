@@ -3,19 +3,19 @@
    Extends tokens.css with light-mode aliases and component styles.
    ===================================================================== */
 
-/* --- Light-mode variable aliases (UI palette) ----------------------- */
+/* --- Dark palette aliases (UI palette) ------------------------------ */
 :root {
-  --paper:      #EDE7DA;
-  --paper-deep: #E2DBCA;
-  --ink:        #131A1A;
-  --ink-2:      #3A4242;
-  --clay:       #8E2A2A;
+  --paper:      #131A1A;  /* midnight — page background */
+  --paper-deep: #1B2323;  /* midnight-2 — secondary surfaces */
+  --ink:        #EDE7DA;  /* bone — primary text / inverted bg */
+  --ink-2:      #C9C2B3;  /* bone-2 — body text */
+  --clay:       #8E2A2A;  /* oxblood — primary accent */
   --clay-deep:  #6E1F1F;
-  --sand:       #E2DBCA;
-  --stone:      #8A8378;
-  --stone-2:    #C9C2B3;
+  --sand:       #2A3232;  /* slate — card surfaces */
+  --stone:      #8A8378;  /* ash — muted / captions */
+  --stone-2:    #C9C2B3;  /* bone-2 */
   --moss:       #4A6B4A;
-  --hairline:   rgba(19, 26, 26, 0.10);
+  --hairline:   rgba(237, 231, 218, 0.10);
 }
 
 /* --- Reset & base (light-mode override) ----------------------------- */
@@ -627,7 +627,7 @@ select {
   font-size: var(--t-body);
   color: var(--ink);
   background: var(--paper);
-  border: 1px solid rgba(19, 26, 26, 0.25);
+  border: 1px solid rgba(237, 231, 218, 0.20);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
   transition: border-color var(--dur-base) var(--ease);
@@ -685,7 +685,7 @@ textarea {
 .contact-detail-value a {
   color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: rgba(19,26,26,0.3);
+  text-decoration-color: rgba(237, 231, 218, 0.35);
   text-underline-offset: 3px;
   transition: text-decoration-color var(--dur-base) var(--ease);
 }
