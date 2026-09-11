@@ -50,6 +50,20 @@ auto-deploy loops) and **adding a paid-only service** without noticing.
 
 ---
 
+## 🚀 Launch checklist — do these when the restructure merges
+
+The site is currently pre-launch: `main` still serves the Coming Soon page and
+the real site lives on a feature branch preview. Two things must change at
+launch, and **the first one silently breaks publishing if missed**:
+
+- [ ] **`public/admin/config.yml` → `backend.branch` back to `main`.** It is
+      pointed at the feature branch so posts written during staging appear on
+      the branch preview. Left as-is after merge, the live CMS commits to a
+      stale branch and nothing written at `/admin` ever appears on the site.
+- [ ] Delete or rewrite `src/content/blog/hello.md`, the placeholder first post.
+
+Once both are done, delete this section.
+
 ## Architecture
 
 - **Astro 4**, static output. No SSR adapter, no server runtime.

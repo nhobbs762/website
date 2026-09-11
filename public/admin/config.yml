@@ -5,7 +5,12 @@
 backend:
   name: github
   repo: nhobbs762/website
-  branch: main
+  # ⚠️  STAGING ONLY — set back to `main` before/at launch.
+  # While the restructure is unmerged, the CMS commits to the feature branch so
+  # posts written at /admin show up on the branch preview. Left pointing here
+  # after merge, the live CMS would commit to a stale branch and nothing you
+  # write would ever appear. See the launch checklist in CLAUDE.md.
+  branch: claude/stoic-feynman-504vtm
   base_url: https://sveltia-cms-auth.nichobbes7.workers.dev
   commit_messages:
     create: 'content: add {{collection}} "{{slug}}"'
