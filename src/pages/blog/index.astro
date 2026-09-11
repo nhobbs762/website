@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate, isoDate } from '../../lib/content';
+
+const posts = await getPosts('blog');
+---
+
+<Base
+  title="Blog — Hobbes Digital"
+  description="Notes on marketing, running a small business, and what we're learning as we go."
+>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Blog</span>
+      <h1>Notes from the work.</h1>
+      <p class="lead">
+        Shorter, timelier writing than the guides — what we're trying,
+        what's working, and what turned out to be wrong.
+      </p>
+    </div>
+  </section>
+
+  <section class="post-list">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="post-empty">No posts yet. The first one is coming.</p>
+      ) : (
+        posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="post-row">
+            <time class="post-row-date" datetime={isoDate(post.data.pubDate)}>
+              {formatDate(post.data.pubDate)}
+            </time>
+            <div class="post-row-main">
+              <h2 class="post-row-title">
+                {post.data.title}
+                {post.data.draft && <span class="post-draft">Draft</span>}
+              </h2>
+              <p class="post-row-desc">{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <div class="post-row-tags">
+                  {post.data.tags.map((tag) => <span class="resource-tag">{tag}</span>)}
+                </div>
+              )}
+            </div>
+          </a>
+        ))
+      )}
+    </div>
+  </section>
+
+</Base>
