@@ -1,105 +1,91 @@
 ---
+import Base from '../layouts/Base.astro';
+import { getPosts, formatDate, isoDate } from '../lib/content';
+
+const [posts, guides] = await Promise.all([getPosts('blog'), getPosts('resources')]);
+const latestPosts = posts.slice(0, 3);
+const latestGuides = guides.slice(0, 3);
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hobbes Digital</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --black: #0a0a0a;
-      --white: #f5f2ee;
-      --gold: #b8975a;
-    }
+<Base
+  title="Hobbes Digital — practical marketing for small businesses"
+  description="We help small business owners in Singapore and SE Asia build a steady, predictable flow of customers. Practical marketing, measured against revenue."
+>
 
-    html, body {
-      height: 100%;
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      overflow: hidden;
-    }
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow hero-eyebrow">Singapore · SE Asia</span>
+      <h1>Practical marketing, <em>measured against revenue.</em></h1>
+      <p class="lead hero-lead">
+        We help small business owners build a steady, predictable flow of
+        customers — without the agency overhead, the jargon, or the vanity
+        metrics. The person who writes the strategy is the person who runs it.
+      </p>
+      <div class="hero-actions">
+        <a href="/resources" class="btn btn-primary">Read the guides</a>
+        <a href="/blog" class="btn btn-secondary">Latest posts</a>
+      </div>
+    </div>
+  </section>
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  <section class="home-split">
+    <div class="container">
+      <div class="home-split-grid">
+        <div>
+          <span class="eyebrow">Resources</span>
+          <h2>Evergreen guides.</h2>
+          <p>
+            Long-form, plain-English writing on digital marketing and AI
+            tools. Written to stay useful, and kept up to date.
+          </p>
+          <a href="/resources" class="home-split-link">Browse all guides →</a>
+          {latestGuides.length > 0 && (
+            <ul class="home-mini-list">
+              {latestGuides.map((guide) => (
+                <li>
+                  <a href={`/resources/${guide.slug}`}>{guide.data.title}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div>
+          <span class="eyebrow">Blog</span>
+          <h2>Notes from the work.</h2>
+          <p>
+            Shorter and timelier — what we're trying, what's working, and
+            what turned out to be wrong.
+          </p>
+          <a href="/blog" class="home-split-link">Read the blog →</a>
+          {latestPosts.length > 0 && (
+            <ul class="home-mini-list">
+              {latestPosts.map((post) => (
+                <li>
+                  <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                  <time datetime={isoDate(post.data.pubDate)}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      opacity: 0.4;
-      pointer-events: none;
-      z-index: 0;
-    }
+  <section class="home-contact">
+    <div class="container">
+      <div class="home-contact-inner">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Tell us about your business.</h2>
+        <p>
+          We'll tell you what we'd do. No pressure and no pitch deck — a
+          conversation, and a written note afterwards either way.
+        </p>
+        <a href="mailto:hello@hobbes.sg" class="btn btn-primary">hello@hobbes.sg</a>
+      </div>
+    </div>
+  </section>
 
-    .container {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .wordmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--white);
-      opacity: 0;
-      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    }
-
-    .wordmark span {
-      color: var(--gold);
-    }
-
-    .divider {
-      width: 1px;
-      height: 0;
-      background: var(--gold);
-      margin: 2rem auto;
-      animation: grow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
-    }
-
-    .tagline {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0;
-      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes grow {
-      from { height: 0; }
-      to   { height: 48px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1 class="wordmark">Hobbes <span>Digital</span></h1>
-    <div class="divider"></div>
-    <p class="tagline">Coming Soon</p>
-  </div>
-</body>
-</html>
+</Base>

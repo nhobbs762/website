@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate, isoDate } from '../../lib/content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('resources');
+  const posts = await getPosts('resources');
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
@@ -12,9 +12,6 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
-
-const formatDate = (date: Date) =>
-  date.toLocaleDateString('en-SG', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
 <Base title={`${post.data.title} — Hobbes Digital`} description={post.data.description}>
@@ -26,13 +23,21 @@ const formatDate = (date: Date) =>
 
       <div class="resource-post-header">
         <div class="resource-post-meta">
-          <span class="eyebrow">{formatDate(post.data.pubDate)}</span>
-          {post.data.tags.map((tag) => (
-            <span class="resource-tag">{tag}</span>
-          ))}
+          <time class="eyebrow" datetime={isoDate(post.data.pubDate)}>
+            {formatDate(post.data.pubDate)}
+          </time>
+          {post.data.draft && <span class="post-draft">Draft</span>}
+          {post.data.tags.map((tag) => <span class="resource-tag">{tag}</span>)}
         </div>
         <h1>{post.data.title}</h1>
         <p class="lead">{post.data.description}</p>
+        {post.data.updatedDate && (
+          <p class="post-updated">
+            Updated <time datetime={isoDate(post.data.updatedDate)}>
+              {formatDate(post.data.updatedDate)}
+            </time>
+          </p>
+        )}
       </div>
 
       <div class="resource-post-body">

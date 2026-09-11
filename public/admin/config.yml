@@ -1,0 +1,122 @@
+# Sveltia CMS — https://sveltiacms.app
+# Edits here are committed straight to the repo, which triggers a Cloudflare
+# Pages build. Publishing a post = committing it with `draft: false`.
+
+backend:
+  name: github
+  repo: nhobbs762/website
+  branch: main
+  base_url: https://sveltia-cms-auth.nichobbes7.workers.dev
+  commit_messages:
+    create: 'content: add {{collection}} "{{slug}}"'
+    update: 'content: update {{collection}} "{{slug}}"'
+    delete: 'content: delete {{collection}} "{{slug}}"'
+    uploadMedia: 'content: upload "{{path}}"'
+    deleteMedia: 'content: delete "{{path}}"'
+
+media_folder: public/uploads
+public_folder: /uploads
+
+# Shared field definitions are not supported by the config format, so the two
+# collections repeat them. Keep them in step with src/content/config.ts.
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Post
+    description: Dated posts — opinion, notes, updates. Timely rather than evergreen.
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    preview_path: blog/{{slug}}
+    sortable_fields: [pubDate, title]
+    view_groups:
+      - label: Status
+        field: draft
+    fields:
+      - { name: title, label: Title, widget: string }
+      - {
+          name: description,
+          label: Description,
+          widget: text,
+          hint: One or two sentences. Shown on the blog index and used as the meta description.,
+        }
+      - {
+          name: pubDate,
+          label: Published date,
+          widget: datetime,
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+        }
+      - {
+          name: updatedDate,
+          label: Updated date,
+          widget: datetime,
+          required: false,
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+          hint: Leave empty unless you have meaningfully revised the post.,
+        }
+      - { name: tags, label: Tags, widget: list, required: false, default: [] }
+      - { name: author, label: Author, widget: string, default: Nic Hobbs, required: false }
+      - {
+          name: draft,
+          label: Draft,
+          widget: boolean,
+          default: true,
+          hint: Drafts appear on branch previews but are stripped from the live site. Untick to publish.,
+        }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: resources
+    label: Resources
+    label_singular: Guide
+    description: Evergreen, maintained guides. Written to stay useful.
+    folder: src/content/resources
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    preview_path: resources/{{slug}}
+    sortable_fields: [pubDate, title]
+    view_groups:
+      - label: Status
+        field: draft
+    fields:
+      - { name: title, label: Title, widget: string }
+      - {
+          name: description,
+          label: Description,
+          widget: text,
+          hint: One or two sentences. Shown on the resources index and used as the meta description.,
+        }
+      - {
+          name: pubDate,
+          label: Published date,
+          widget: datetime,
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+        }
+      - {
+          name: updatedDate,
+          label: Updated date,
+          widget: datetime,
+          required: false,
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+          hint: Worth setting on a guide — it signals the guide is maintained.,
+        }
+      - { name: tags, label: Tags, widget: list, required: false, default: [] }
+      - {
+          name: draft,
+          label: Draft,
+          widget: boolean,
+          default: true,
+          hint: Drafts appear on branch previews but are stripped from the live site. Untick to publish.,
+        }
+      - { name: body, label: Body, widget: markdown }

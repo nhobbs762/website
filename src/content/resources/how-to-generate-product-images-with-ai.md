@@ -69,4 +69,4 @@ The goal isn't to replace your instincts about what looks good. It's to get the 
 
 ---
 
-*Have a question about using AI tools in your marketing? [Get in touch](/contact) — we try to respond to every message.*
+*Have a question about using AI tools in your marketing? [get in touch](mailto:hello@hobbes.sg) — we try to respond to every message.*

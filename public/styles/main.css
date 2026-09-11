@@ -923,3 +923,173 @@ textarea {
   padding: 0;
   font-size: var(--t-small);
 }
+
+/* =====================================================================
+   Blog list — denser and more chronological than the resource cards
+   ===================================================================== */
+
+.post-list {
+  padding: 0 0 var(--s-9);
+}
+
+.post-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--s-5);
+  padding: var(--s-6) 0;
+  border-bottom: 1px solid var(--hairline);
+  text-decoration: none;
+  transition: opacity var(--dur-base) var(--ease);
+}
+
+.post-row:first-of-type { border-top: 1px solid var(--hairline); }
+.post-row:hover { opacity: 0.7; }
+
+.post-row-date {
+  font-family: var(--font-body);
+  font-size: var(--t-meta);
+  font-weight: 600;
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--stone);
+  padding-top: 6px;
+}
+
+.post-row-title {
+  font-size: var(--t-h3);
+  margin-bottom: var(--s-3);
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.post-row-desc {
+  color: var(--ink-2);
+  max-width: var(--reading-max);
+}
+
+.post-row-tags {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  margin-top: var(--s-4);
+}
+
+@media (max-width: 720px) {
+  .post-row { grid-template-columns: 1fr; gap: var(--s-3); }
+  .post-row-date { padding-top: 0; }
+}
+
+/* Shared post furniture */
+
+.post-draft {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clay);
+  border: 1px solid var(--clay);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.post-readtime {
+  font-size: var(--t-meta);
+  color: var(--stone);
+}
+
+.post-updated {
+  font-size: var(--t-small);
+  color: var(--stone);
+  margin-top: var(--s-4);
+  font-style: italic;
+}
+
+.post-empty {
+  color: var(--stone);
+  padding: var(--s-7) 0;
+  border-top: 1px solid var(--hairline);
+}
+
+/* =====================================================================
+   Homepage — resources / blog split and contact block
+   ===================================================================== */
+
+.home-split {
+  padding: var(--s-9) 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.home-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-8);
+}
+
+.home-split-grid .eyebrow { display: block; margin-bottom: var(--s-4); }
+.home-split-grid h2 { margin-bottom: var(--s-4); }
+.home-split-grid p { max-width: 48ch; }
+
+.home-split-link {
+  display: inline-block;
+  margin-top: var(--s-5);
+  font-size: var(--t-small);
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--hairline);
+  transition: text-decoration-color var(--dur-base) var(--ease);
+}
+
+.home-split-link:hover { text-decoration-color: var(--clay); }
+
+.home-mini-list {
+  list-style: none;
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.home-mini-list li {
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-4);
+}
+
+.home-mini-list a {
+  font-size: var(--t-small);
+  color: var(--ink-2);
+  transition: color var(--dur-base) var(--ease);
+}
+
+.home-mini-list a:hover { color: var(--clay); }
+
+.home-mini-list time {
+  font-size: var(--t-meta);
+  color: var(--stone);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .home-split-grid { grid-template-columns: 1fr; gap: var(--s-8); }
+}
+
+.home-contact {
+  padding: var(--s-9) 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.home-contact-inner {
+  max-width: var(--reading-max);
+}
+
+.home-contact-inner .eyebrow { display: block; margin-bottom: var(--s-4); }
+.home-contact-inner h2 { margin-bottom: var(--s-4); }
+.home-contact-inner p { margin-bottom: var(--s-6); }

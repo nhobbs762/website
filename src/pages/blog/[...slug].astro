@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate, isoDate, readingTime } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = await getPosts('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const readTime = readingTime(post.body);
+---
+
+<Base title={`${post.data.title} — Hobbes Digital`} description={post.data.description}>
+
+  <article class="resource-post">
+    <div class="container">
+
+      <a href="/blog" class="resource-back">← All posts</a>
+
+      <div class="resource-post-header">
+        <div class="resource-post-meta">
+          <time class="eyebrow" datetime={isoDate(post.data.pubDate)}>
+            {formatDate(post.data.pubDate)}
+          </time>
+          <span class="post-readtime">{readTime}</span>
+          {post.data.draft && <span class="post-draft">Draft</span>}
+          {post.data.tags.map((tag) => <span class="resource-tag">{tag}</span>)}
+        </div>
+        <h1>{post.data.title}</h1>
+        <p class="lead">{post.data.description}</p>
+        {post.data.updatedDate && (
+          <p class="post-updated">
+            Updated <time datetime={isoDate(post.data.updatedDate)}>
+              {formatDate(post.data.updatedDate)}
+            </time>
+          </p>
+        )}
+      </div>
+
+      <div class="resource-post-body">
+        <Content />
+      </div>
+
+    </div>
+  </article>
+
+</Base>
