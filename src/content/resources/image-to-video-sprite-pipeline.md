@@ -63,7 +63,7 @@ Every model got the same reference image and the same walk prompt, for about thr
 
 <figure>
   <video src="/blog/sprite-pipeline/05-comparison-512.mp4" autoplay loop muted playsinline></video>
-  <figcaption>All five models side by side at 512×768, from the same reference and the same walk prompt.</figcaption>
+  <figcaption>All five models side by side at 512×768, from the same reference and the same walk prompt. LTX-2 appears twice: as it came, and after the preprocessing fix.</figcaption>
 </figure>
 
 <figure>

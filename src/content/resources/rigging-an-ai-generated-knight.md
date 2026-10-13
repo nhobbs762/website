@@ -14,7 +14,7 @@ In practice the knight fell apart, sometimes literally, several times before it 
 The concept came from SDXL and was fed into Pixal3D, an image-to-3D model. The pose shows the knight in three-quarter view with his hands resting on the hip plates. It looks good as an illustration, but most of the problems that follow come from it.
 
 <figure>
-  <img src="/blog/knight-walk-cycle/concept-three-quarter.webp" alt="AI-generated concept art of an armoured knight in three-quarter view, hands resting on his hip plates" loading="lazy" />
+  <img src="/blog/knight-walk-cycle/concept-three-quarter.webp" alt="AI-generated concept art of an armoured knight in three-quarter view, arms down with his hands pressed against his hips" loading="lazy" />
   <figcaption>The original SDXL concept. The hands resting on the hips turn out to be a big problem later on.</figcaption>
 </figure>
 
