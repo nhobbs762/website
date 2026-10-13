@@ -923,3 +923,54 @@ textarea {
   padding: 0;
   font-size: var(--t-small);
 }
+
+/* Post media + tables */
+.resource-post-body figure {
+  margin: 36px 0;
+}
+
+.resource-post-body figure img,
+.resource-post-body figure video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  background: var(--paper-deep);
+}
+
+.resource-post-body figure img.pixel {
+  image-rendering: pixelated;
+  min-width: 192px;
+}
+
+.resource-post-body figcaption {
+  margin-top: 12px;
+  font-size: var(--t-small);
+  color: var(--stone);
+  line-height: 1.5;
+}
+
+.resource-post-body .table-wrap {
+  overflow-x: auto;
+  margin: 24px 0 32px;
+}
+
+.resource-post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-small);
+}
+
+.resource-post-body th,
+.resource-post-body td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+
+.resource-post-body th {
+  color: var(--ink);
+  font-weight: 600;
+}
